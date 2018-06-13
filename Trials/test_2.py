@@ -1,0 +1,12 @@
+import face_recognition
+image = face_recognition.load_image_file('harshit.jpg',mode='RGB')
+un_image = face_recognition.load_image_file('aman.jpg')
+face_location=face_recognition.face_locations(image)
+print(face_location)
+face_landmarks_list = face_recognition.face_landmarks(image)
+print(face_landmarks_list)
+k_en = face_recognition.face_encodings(image)
+u_en = face_recognition.face_encodings(un_image)
+print(k_en[0])
+check = face_recognition.compare_faces([k_en[0]],u_en[0])
+print(check)
